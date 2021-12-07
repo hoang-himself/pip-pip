@@ -108,7 +108,7 @@ python manage.py collectstatic --no-input
 
 python manage.py createsuperuser_with_password \
 --email 'owner@localhost.com' \
---mobile '0999999999' \
+--phone '0999999999' \
 --password 'iamowner' \
 --preserve --no-input
 ```

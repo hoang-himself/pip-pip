@@ -1,32 +1,70 @@
 from django.contrib.auth import get_user_model
 
 from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 
 from master_api.utils import get_by_uuid
 from master_api.views import (
     create_object, edit_object, delete_object, get_object, get_all_object
 )
-from master_db.models import Product
-from master_db.serializers import ProductSerializer
+from master_db.models import Product, Brand
+from master_db.serializers import ProductSerializer, EnhancedModelSerializer
 
 CustomUser = get_user_model()
 
 
-class AllProductView(APIView):
-    def get(self, _):
-        return get_all_object(Product)
+class ImplicitProduct(EnhancedModelSerializer):
+    class Meta:
+        model = Product
+        fields = ('name', 'image', 'price', 'perk')
 
 
-class ProductView(APIView):
-    # def post(self, request):
-    #     return create_object(Product, data=request.data)
+@api_view(['GET'])
+def get_all(_):
+    return get_all_object(Product, ImplicitProduct)
 
-    def get(self, request):
-        return get_object(Product, data=request.data)
 
-    # def patch(self, request):
-    #     return edit_object(Product, data=request.data)
+@api_view(['GET'])
+def get_filter_list(_):
+    return Response([
+        {
+            "name": "Brand",
+            "data": Brand.objects.all().values_list("name", flat=True).distinct()
+        },
+        {
+            "name": "RAM",
+            "data": ["4GB", "8GB", "12GB", "16GB"]
+        },
+        {
+            "name": "Camera",
+            "data": ["2MP", "8MP", "12MP", "13MP", "16MP"]
+        },
+        {
+            "name": "Storage",
+            "data": ["64GB", "128GB", "256GB", "512GB"]
+        },
+        {
+            "name": "Year",
+            "data": ["2015", "2016", "2017", "2018", "2019", "2020", "2021"]
+        }
+    ])
 
-    # def delete(self, request):
-    #     return delete_object(Product, data=request.data)
+
+@api_view(['GET'])
+def get_detail(request):
+    return get_object(Product, data=request.data)
+
+
+@api_view(['GET'])
+def get_search(request):
+    instances = Product.objects.filter(name__contains=request.data.get('key'))
+    return Response(ImplicitProduct(instances, many=True).data)
+
+
+@api_view(['GET'])
+def get_filter(request):
+    dic = {}
+    for (key, value) in request.data.items():
+        dic.update({key.lower()+"__contains": value})
+    instances = Product.objects.filter(**dic)
+    return Response(ImplicitProduct(instances, many=True).data)

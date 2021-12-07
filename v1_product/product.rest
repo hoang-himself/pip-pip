@@ -1,16 +1,35 @@
-@hostname=host.docker.internal
 @port=8000
 @branch={{hostname}}:{{port}}/api/v1/product
 @contentType=application/json
 # @authToken=
 
 ###
+GET http://{{branch}}/filter_list
+
+###
 GET http://{{branch}}/all
 
 ###
-GET http://{{branch}}/product
+GET http://{{branch}}/detail
 Content-Type: {{contentType}}
 
 {
     "uuid": "6d9349b0-7877-5f44-a863-888e273c3ab0"
+}
+
+###
+GET http://{{branch}}/search
+Content-Type: {{contentType}}
+
+{
+    "key": "iPh"
+}
+
+
+###
+GET http://{{branch}}/filter
+Content-Type: {{contentType}}
+
+{
+    "RAM": "12GB"
 }

@@ -72,8 +72,8 @@ def get_object(model, **kwargs):
     return Response(Serializer(get_by_uuid(model, uuid)).data)
 
 
-def get_all_object(model):
-    Serializer = SERIALIZERS[model]
+def get_all_object(model, implicit=None):
+    Serializer = SERIALIZERS[model] if implicit is None else implicit
     return Response(Serializer(model.objects.all(), many=True).data)
 
 

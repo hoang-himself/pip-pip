@@ -24,8 +24,8 @@ class Brand(TemplateModel):
         verbose_name = 'brand'
         verbose_name_plural = 'brands'
 
-    # def __str__(self):
-    #     return self.desc
+    def __str__(self):
+        return self.name
 
 
 def upload_image(instance, filename):
@@ -62,7 +62,7 @@ class Product(TemplateModel):
 class CustomUser(AbstractUser):
     username = None
     email = models.EmailField(unique=True)
-    mobile = models.TextField(unique=True)
+    phone = models.TextField(unique=True)
 
     date_joined = models.DateTimeField(
         'date joined', auto_now_add=True, editable=False

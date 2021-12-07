@@ -1,4 +1,3 @@
-@hostname=host.docker.internal
 @port=8000
 @branch={{hostname}}:{{port}}/api/v1/brand
 @contentType=application/json

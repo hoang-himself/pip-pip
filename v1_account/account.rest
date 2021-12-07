@@ -1,4 +1,3 @@
-@hostname=host.docker.internal
 @port=8000
 @branch={{hostname}}:{{port}}/api/v1/account
 @contentType=application/json
@@ -12,7 +11,7 @@ Content-Type: {{contentType}}
     "email": "",
     "first_name": "",
     "last_name": "",
-    "mobile": "",
+    "phone": "",
     "password": ""
 }
 

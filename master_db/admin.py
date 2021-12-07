@@ -25,7 +25,7 @@ class CustomUserAdmin(UserAdmin):
                         'email',
                         'first_name',
                         'last_name',
-                        'mobile',
+                        'phone',
                     )
             }
         ),
@@ -66,7 +66,7 @@ class CustomUserAdmin(UserAdmin):
                         'email',
                         'first_name',
                         'last_name',
-                        'mobile',
+                        'phone',
                         'password1',
                         'password2',
                 ),
