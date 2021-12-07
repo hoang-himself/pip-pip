@@ -32,8 +32,7 @@ source ./.venv/bin/activate
 ```bash
 sudo apt update
 sudo apt install -y postgresql
-pip install pip-tools
-pip-sync
+pip install -r requirements.txt
 ```
 
 ## First-time setup

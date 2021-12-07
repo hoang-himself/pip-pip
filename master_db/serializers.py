@@ -25,8 +25,6 @@ MANY_RELATION_KWARGS = (
     'html_cutoff', 'html_cutoff_text'
 )
 
-# TODO
-
 
 class UUIDRelatedField(serializers.RelatedField):
     """

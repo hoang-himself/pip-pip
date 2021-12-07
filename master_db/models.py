@@ -3,14 +3,21 @@ from django.db import models
 
 from .managers import CustomUserManager
 
+import uuid
 import os
 
 PRODUCT_IMAGE_PATH = 'products/'
 
 
-#
-class Brand(models.Model):
-    name = models.TextField()
+class TemplateModel(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, blank=True)
+
+    class Meta:
+        abstract = True
+
+
+class Brand(TemplateModel):
+    name = models.TextField(unique=True)
     desc = models.TextField()
 
     class Meta:
@@ -26,9 +33,8 @@ def upload_image(instance, filename):
     return '%s/%s/%s' % (PRODUCT_IMAGE_PATH, instance.uuid, 'product' + file_ext)
 
 
-#
-class Product(models.Model):
-    name = models.TextField(unique=True)
+class Product(TemplateModel):
+    name = models.TextField()
     image = models.ImageField(upload_to=upload_image, null=True, blank=True)
     brand = models.ForeignKey(
         Brand,
@@ -64,6 +70,11 @@ class CustomUser(AbstractUser):
     date_updated = models.DateTimeField(
         'date updated', auto_now=True
     )  # Auto update for every save()
+    cart = models.ManyToManyField(
+        Product,
+        through='Cart',
+        through_fields=('users', 'items')
+    )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -77,16 +88,18 @@ class CustomUser(AbstractUser):
     #     return self.first_name + ' ' + self.last_name
 
 
-class Cart(models.Model):
-    users = models.ManyToManyField(
+class Cart(TemplateModel):
+    users = models.ForeignKey(
         CustomUser,
-        related_name='user_carts',
         blank=True,
+        related_name='cart_user',
+        on_delete=models.CASCADE
     )
-    items = models.ManyToManyField(
+    items = models.ForeignKey(
         Product,
-        related_name='cart_items',
         blank=True,
+        related_name='cart_item',
+        on_delete=models.CASCADE
     )
     quantity = models.IntegerField()
 
