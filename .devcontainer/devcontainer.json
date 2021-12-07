@@ -35,6 +35,7 @@
         "humao.rest-client",
         "mikestead.dotenv",
         "streetsidesoftware.code-spell-checker",
+        "ms-vsliveshare.vsliveshare",
         "mtxr.sqltools"
     ],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
