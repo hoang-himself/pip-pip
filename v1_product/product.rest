@@ -1,0 +1,16 @@
+@hostname=host.docker.internal
+@port=8000
+@branch={{hostname}}:{{port}}/api/v1/product
+@contentType=application/json
+# @authToken=
+
+###
+GET http://{{branch}}/all
+
+###
+GET http://{{branch}}/product
+Content-Type: {{contentType}}
+
+{
+    "uuid": "6d9349b0-7877-5f44-a863-888e273c3ab0"
+}
