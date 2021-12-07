@@ -60,6 +60,7 @@ class Product(TemplateModel):
 
 
 class CustomUser(AbstractUser):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, blank=True)
     username = None
     email = models.EmailField(unique=True)
     phone = models.TextField(unique=True)
