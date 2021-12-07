@@ -1,0 +1,7 @@
+@hostname=host.docker.internal
+@port=8000
+@branch={{hostname}}:{{port}}/api/v1/cart
+@contentType=application/json
+# @authToken=
+
+### TODO

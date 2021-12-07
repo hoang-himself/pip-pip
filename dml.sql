@@ -52,7 +52,7 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Apple'
     ),
-    '/product/iphone-12-trang-13-600x600.jpg',
+    '/product/iphone-12.png',
     'iPhone 12',
     '[ "white", "red", "green", "yellow", "blue", "purple", "black" ]',
     '[ "128GB", "256GB", "512GB" ]',
@@ -72,7 +72,7 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Apple'
     ),
-    '/product/iphone-13-midnight-2-600x600.jpg',
+    '/product/iphone-13.png',
     'iPhone 13',
     '[ "white", "black", "blue", "red" ]',
     '[ "128GB", "256GB", "512GB" ]',
@@ -92,8 +92,8 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Apple'
     ),
-    '/product/iphone-13-pro-gold-1-600x600.jpg',
-    'iPhone 13 Pro',
+    '/product/iphone-13-pro-max.png',
+    'iPhone 13 Pro Max',
     '[ "white", "red", "green", "yellow", "blue", "purple", "black" ]',
     '[ "256GB", "128GB", "512GB", "1TB" ]',
     '4GB',
@@ -112,8 +112,8 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Apple'
     ),
-    '/product/iphone-xi-do-600x600.jpg',
-    'iPhone 11',
+    '/product/iphone-7.png',
+    'iPhone 7',
     '[ "red", "purple", "black", "white", "yellow" ]',
     '[ "64GB", "128GB", "256GB" ]',
     '4GB',
@@ -132,8 +132,8 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Oppo'
     ),
-    '/product/oppo-a95-4g-bac-2-600x600.jpg',
-    'Oppo A95 4G',
+    '/product/oppo-f17-pro.png',
+    'Oppo F17 Pro',
     '[ "white", "black" ]',
     '[ "128GB" ]',
     '8GB',
@@ -152,7 +152,7 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Oppo'
     ),
-    '/product/oppo-reno6-pro-blue-1-600x600.jpg',
+    '/product/redmi-note-10.png',
     'Reno6 Pro 5G',
     '[ "blue", "white" ]',
     '[ "256GB" ]',
@@ -172,7 +172,7 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Oppo'
     ),
-    '/product/oppo-reno6-z-5g-aurora-1-600x600.jpg',
+    '/product/rog-phone-5s-pro.png',
     'Reno6 Z 5G',
     '[ "white", "black" ]',
     '[ "256GB" ]',
@@ -192,7 +192,7 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Realme'
     ),
-    '/product/realme-c11-2021-blue-1-600x600.jpg',
+    '/product/samsung-galaxy-a71.png',
     'Realme C11 (2021)',
     '[ "blue", "white" ]',
     '[ "32GB", "64GB" ]',
@@ -212,7 +212,7 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Samsung'
     ),
-    '/product/samsung-galaxy-a03s-black-600x600.jpg',
+    '/product/samsung-galaxy-a72.png',
     'Samsung Galaxy A03s',
     '[ "black", "blue", "white" ]',
     '[ "64GB" ]',
@@ -232,7 +232,7 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Vivo'
     ),
-    '/product/Vivo-V23e-1-2-600x600.jpg',
+    '/product/samsung-galaxy-s21.png',
     'Vivo V23e',
     '[ "pink", "blue", "black" ]',
     '[ "128GB" ]',
@@ -252,7 +252,7 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Xiaomi'
     ),
-    '/product/xiaomi-11t-grey-1-600x600.jpg',
+    '/product/samsung-z-flip.png',
     'Xiaomi 11T 5G',
     '[ "grey", "blue", "white" ]',
     '[ "128GB", "256GB" ]',

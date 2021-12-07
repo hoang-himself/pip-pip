@@ -1,0 +1,26 @@
+@hostname=host.docker.internal
+@port=8000
+@branch={{hostname}}:{{port}}/api/v1/account
+@contentType=application/json
+# @authToken=
+
+### TODO
+POST http://{{branch}}/signup
+Content-Type: {{contentType}}
+
+{
+    "email": "",
+    "first_name": "",
+    "last_name": "",
+    "mobile": "",
+    "password": ""
+}
+
+### TODO
+POST http://{{branch}}/signin
+Content-Type: {{contentType}}
+
+{
+    "email": "",
+    "password": ""
+}
