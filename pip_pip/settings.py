@@ -10,9 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+import dj_database_url
 from datetime import timedelta
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,15 +50,14 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'rest_framework_simplejwt',
-    'simple_history',
 
     # Custom
-    'master_api',
+    # 'master_api',
     'master_db',
-    'v1_account',
-    'v1_brand',
-    'v1_cart',
-    'v1_product',
+    # 'v1_account',
+    # 'v1_brand',
+    # 'v1_cart',
+    # 'v1_product',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +87,7 @@ TEMPLATES = [
                         'django.contrib.auth.context_processors.auth',
                         'django.contrib.messages.context_processors.messages',
                     ],
-            },
+        },
     },
 ]
 

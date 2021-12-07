@@ -4,8 +4,7 @@ from django.contrib.auth.models import Group
 
 from master_api.utils import validate_uuid4
 from master_db.models import (
-    Branch, Calendar, CustomUser, Setting, Course, ClassMetadata, Schedule,
-    Session
+    Brand, Cart, Product, CustomUser
 )
 
 # For custom classes
@@ -27,6 +26,8 @@ MANY_RELATION_KWARGS = (
 )
 
 # TODO
+
+
 class UUIDRelatedField(serializers.RelatedField):
     """
         * UUID Related Field: An alternative to PrimaryKeyRelatedField,
@@ -133,6 +134,7 @@ class EnhancedListSerializer(serializers.ListSerializer):
             + TemplateBase: to use this serializer the model's metaclass
             must be TemplateBase or its subclass.
     """
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if not isinstance(self.child, EnhancedModelSerializer):
@@ -280,21 +282,9 @@ class EnhancedModelSerializer(serializers.ModelSerializer):
         self.ignore = dict.fromkeys(self._ignore, True)
 
 
-class BranchSerializer(EnhancedModelSerializer):
+class BrandSerializer(EnhancedModelSerializer):
     class Meta:
-        model = Branch
-        exclude = ('id', )
-
-
-class CalendarSerializer(EnhancedModelSerializer):
-    class Meta:
-        model = Calendar
-        exclude = ('id', )
-
-
-class SettingSerializer(EnhancedModelSerializer):
-    class Meta:
-        model = Setting
+        model = Brand
         exclude = ('id', )
 
 
@@ -343,28 +333,14 @@ class CustomUserSerializer(EnhancedModelSerializer):
         return ret
 
 
-class CourseSerializer(TaggitSerializer, EnhancedModelSerializer):
-    tags = TagListSerializerField()
+class CartSerializer(EnhancedModelSerializer):
 
     class Meta:
-        model = Course
+        model = Cart
         exclude = ('id', )
 
 
-class ClassMetadataSerializer(EnhancedModelSerializer):
+class ProductSerializer(EnhancedModelSerializer):
     class Meta:
-        model = ClassMetadata
+        model = Product
         exclude = ('id', )
-
-
-class ScheduleSerializer(EnhancedModelSerializer):
-    class Meta:
-        model = Schedule
-        exclude = ('id', )
-
-
-class SessionSerializer(EnhancedModelSerializer):
-    class Meta:
-        model = Session
-        exclude = ('id', )
-        non_updatable = ('schedule', 'student')

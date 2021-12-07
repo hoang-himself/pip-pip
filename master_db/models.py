@@ -30,6 +30,20 @@ def upload_image(instance, filename):
 class Product(models.Model):
     name = models.TextField(unique=True)
     image = models.ImageField(upload_to=upload_image, null=True, blank=True)
+    brand = models.ForeignKey(
+        Brand,
+        on_delete=models.CASCADE,
+    )
+    color = models.JSONField()
+    storage = models.JSONField()
+    ram = models.TextField()
+    year = models.IntegerField()
+    camera = models.TextField()
+    price = models.IntegerField()
+    material = models.TextField()
+    battery = models.TextField()
+    screen = models.TextField()
+    perk = models.JSONField()
 
     class Meta:
         verbose_name = 'product'
@@ -52,9 +66,7 @@ class CustomUser(AbstractUser):
     )  # Auto update for every save()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = [
-        'email',
-    ]
+    REQUIRED_FIELDS = []
     objects = CustomUserManager()
 
     class Meta:
@@ -69,8 +81,7 @@ class Cart(models.Model):
     users = models.ManyToManyField(
         CustomUser,
         related_name='user_carts',
-        on_delete=models.DO_NOTHING,
-        null=True,
+        blank=True,
     )
     items = models.ManyToManyField(
         Product,

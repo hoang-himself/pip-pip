@@ -1,9 +1,8 @@
 from django.urls import path
-from .views import (ScheduleView, FindScheduleView)
+from .views import ProductView
 
 app_name = 'v1_product'
 
 urlpatterns = [
-    path('schedule', ScheduleView.as_view(), name='schedule_mgmt'),
-    path('reverse', FindScheduleView.as_view(), name='reverse'),
+    path('schedule', ProductView.as_view(), name='product_mgmt'),
 ]

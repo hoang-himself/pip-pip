@@ -11,10 +11,9 @@ from master_db import (models, serializers)
 CustomUser = get_user_model()
 
 SERIALIZERS = {
-    models.Course: serializers.CourseSerializer,
-    models.ClassMetadata: serializers.ClassMetadataSerializer,
-    models.Schedule: serializers.ScheduleSerializer,
-    models.Session: serializers.SessionSerializer,
+    models.Brand: serializers.BrandSerializer,
+    models.Cart: serializers.CartSerializer,
+    models.Product: serializers.ProductSerializer,
     CustomUser: serializers.CustomUserSerializer,
 }
 
@@ -49,7 +48,8 @@ def edit_object(model, **kwargs):
     except KeyError:
         raise KeyError('Payload cannot be empty')
     Serializer = SERIALIZERS[model]
-    uuid = uuid[0] if isinstance(uuid := data.pop('uuid', None), list) else uuid
+    uuid = uuid[0] if isinstance(
+        uuid := data.pop('uuid', None), list) else uuid
     instance = get_by_uuid(model, uuid)
     serializer = Serializer(instance=instance, data=data)
     if serializer.is_valid():

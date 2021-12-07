@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (SessionView, FindSessionView)
+from .views import BrandView
 
 app_name = 'v1_brand'
 
