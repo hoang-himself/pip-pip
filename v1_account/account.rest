@@ -3,23 +3,26 @@
 @contentType=application/json
 # @authToken=
 
-### TODO
+###
+GET http://{{branch}}/all
+
+###
 POST http://{{branch}}/signup
 Content-Type: {{contentType}}
 
 {
-    "email": "",
-    "first_name": "",
-    "last_name": "",
-    "phone": "",
-    "password": ""
+    "email": "hig@emovaw.za",
+    "first_name": "Hilda",
+    "last_name": "Ramirez",
+    "phone": "41276641",
+    "password": "4d3ig1bf8WWE6C"
 }
 
-### TODO
+###
 POST http://{{branch}}/signin
 Content-Type: {{contentType}}
 
 {
-    "email": "",
-    "password": ""
+    "email": "hig@emovaw.za",
+    "password": "4d3ig1bf8WWE6C"
 }
