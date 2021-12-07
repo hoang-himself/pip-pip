@@ -1,0 +1,11 @@
+{
+    "rest-client.environmentVariables": {
+        "$shared": {},
+        "devcont": {
+            "hostname": "localhost"
+        },
+        "prod": {
+            "hostname": "host.docker.internal"
+        }
+    }
+}

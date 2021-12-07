@@ -1,0 +1,7 @@
+.git/
+.devcontainer/
+.vscode/
+
+**/*.md
+**/*.rest
+**/*.http

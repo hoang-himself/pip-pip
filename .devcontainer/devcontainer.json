@@ -1,0 +1,37 @@
+{
+    "name": "Python & PostgreSQL",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "project",
+    "workspaceFolder": "/workspace",
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": true,
+        "editor.guides.bracketPairsHorizontal": "active",
+        "editor.guides.highlightActiveIndentation": true,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "bash"
+            }
+        }
+    },
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "editorconfig.editorconfig",
+        "foxundermoon.shell-format",
+        "helixquar.randomeverything",
+        "humao.rest-client",
+        "mikestead.dotenv",
+        "streetsidesoftware.code-spell-checker",
+        "mtxr.sqltools",
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+    ],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": [],
+    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
+}

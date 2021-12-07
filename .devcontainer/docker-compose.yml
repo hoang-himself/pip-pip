@@ -1,0 +1,55 @@
+version: "3.8"
+
+volumes:
+  postgres-volume:
+
+networks:
+  postgres-network:
+    driver: bridge
+
+services:
+  project:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VARIANT: 3.10-bullseye
+        USERNAME: vscode
+        USER_UID: 1000
+    init: true
+    ports:
+      - '3103:3103'
+    env_file:
+      - ../.env
+    volumes:
+      - ..:/workspace:cached
+    networks:
+      - postgres-network
+    command: sleep infinity
+    user: vscode
+
+  postgres:
+    image: postgres:14.1-bullseye
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    env_file:
+      - ../.env
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+  pgadmin:
+    depends_on:
+      - postgres
+    image: dpage/pgadmin4:6.2
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    env_file:
+      - ../.env
+    volumes:
+      - /data/pgadmin:/root/.pgadmin
+    networks:
+      - postgres-network
