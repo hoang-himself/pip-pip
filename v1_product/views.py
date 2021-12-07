@@ -52,19 +52,29 @@ def get_filter_list(_):
 
 @api_view(['GET'])
 def get_detail(request):
-    return get_object(Product, data=request.data)
+    return get_object(Product, data=request.GET)
 
 
 @api_view(['GET'])
 def get_search(request):
-    instances = Product.objects.filter(name__contains=request.data.get('key'))
+    instances = Product.objects.filter(
+        name__icontains=request.GET.get('key'))
     return Response(ImplicitProduct(instances, many=True).data)
 
 
 @api_view(['GET'])
 def get_filter(request):
     dic = {}
-    for (key, value) in request.data.items():
-        dic.update({key.lower()+"__contains": value})
+    for (key, value) in request.GET.items():
+        query = key.lower()
+        if query == 'brand':
+            query += '__name__icontains'
+        elif query == 'fromprice':
+            query = 'price__gt'
+        elif query == 'toprice':
+            query = 'price__lt'
+        else:
+            query += "__icontains"
+        dic.update({query: value})
     instances = Product.objects.filter(**dic)
     return Response(ImplicitProduct(instances, many=True).data)
