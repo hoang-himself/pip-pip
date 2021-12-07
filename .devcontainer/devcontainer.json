@@ -14,19 +14,28 @@
             "bash": {
                 "path": "bash"
             }
+        },
+        "rest-client.environmentVariables": {
+            "$shared": {},
+            "devcont": {
+                "hostname": "localhost"
+            },
+            "prod": {
+                "hostname": "host.docker.internal"
+            }
         }
     },
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
         "editorconfig.editorconfig",
         "foxundermoon.shell-format",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
         "helixquar.randomeverything",
         "humao.rest-client",
         "mikestead.dotenv",
         "streetsidesoftware.code-spell-checker",
-        "mtxr.sqltools",
-        "ms-python.python",
-        "ms-python.vscode-pylance"
+        "mtxr.sqltools"
     ],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],

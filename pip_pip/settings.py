@@ -46,18 +46,17 @@ INSTALLED_APPS = [
 
     # 3rd party
     'corsheaders',
-    'django_filters',
     'django_extensions',
     'rest_framework',
     'rest_framework_simplejwt',
 
     # Custom
-    # 'master_api',
+    'master_api',
     'master_db',
-    # 'v1_account',
-    # 'v1_brand',
-    # 'v1_cart',
-    # 'v1_product',
+    'v1_account',
+    'v1_brand',
+    'v1_cart',
+    'v1_product',
 ]
 
 MIDDLEWARE = [

@@ -17,4 +17,4 @@ RUN apt-get update \
 
 USER ${USERNAME}
 RUN export PATH=${PATH}:/home/vscode/.local/bin \
-    && pip install pip-tools
+    && pip install --upgrade pip setuptools wheel

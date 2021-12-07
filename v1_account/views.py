@@ -62,21 +62,3 @@ class UserView(APIView):
 
     def delete(self, request):
         return delete_object(CustomUser, data=request.data)
-
-
-class StaffView(APIView):
-    def post(self, request):
-        # TODO
-        return Response(status=status.HTTP_501_NOT_IMPLEMENTED)
-
-    def get(self, request):
-        # TODO
-        return Response(status=status.HTTP_501_NOT_IMPLEMENTED)
-
-    def patch(self, request):
-        # TODO
-        return Response(status=status.HTTP_501_NOT_IMPLEMENTED)
-
-    def delete(self, request):
-        # TODO
-        return Response(status=status.HTTP_501_NOT_IMPLEMENTED)
