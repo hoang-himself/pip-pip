@@ -72,6 +72,11 @@ def get_object(model, **kwargs):
     return Response(Serializer(get_by_uuid(model, uuid)).data)
 
 
+def get_all_object(model):
+    Serializer = SERIALIZERS[model]
+    return Response(Serializer(model.objects.all(), many=True).data)
+
+
 def delete_object(model, **kwargs):
     try:
         data = kwargs.pop('data')
@@ -87,5 +92,5 @@ def delete_object(model, **kwargs):
 
 @api_view(['POST', 'GET', 'PATCH', 'DELETE'])
 @permission_classes([AllowAny])
-def ping(request):
+def ping(_):
     return Response(data={'detail': 'pong'}, status=status.HTTP_200_OK)
