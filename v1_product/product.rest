@@ -33,3 +33,12 @@ Content-Type: {{contentType}}
 {
     "RAM": "12GB"
 }
+
+
+###
+GET https://pip-3103.herokuapp.com/api/v1/product/all
+Content-Type: {{contentType}}
+
+{
+    "RAM": "12GB"
+}
