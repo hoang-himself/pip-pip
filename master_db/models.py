@@ -75,7 +75,7 @@ class CustomUser(AbstractUser):
     cart = models.ManyToManyField(
         Product,
         through='Cart',
-        through_fields=('users', 'items')
+        through_fields=('user', 'item')
     )
 
     USERNAME_FIELD = 'email'
@@ -91,16 +91,18 @@ class CustomUser(AbstractUser):
 
 
 class Cart(TemplateModel):
-    users = models.ForeignKey(
+    user = models.ForeignKey(
         CustomUser,
         blank=True,
         related_name='cart_user',
+        related_query_name='user_query',
         on_delete=models.CASCADE
     )
-    items = models.ForeignKey(
+    item = models.ForeignKey(
         Product,
         blank=True,
         related_name='cart_item',
+        related_query_name='item_query',
         on_delete=models.CASCADE
     )
     quantity = models.IntegerField()
@@ -108,3 +110,8 @@ class Cart(TemplateModel):
     class Meta:
         verbose_name = 'cart'
         verbose_name_plural = 'carts'
+        constraints = [
+            models.UniqueConstraint(
+                fields=['item', 'user'], name='user_item'
+            )
+        ]

@@ -3,4 +3,36 @@
 @contentType=application/json
 # @authToken=
 
-### TODO
+###
+PUT http://{{branch}}/cart
+Content-Type: {{contentType}}
+
+{
+    "uuid": "e5fb8ff4-9520-5118-8195-290803e57460",
+    "quantity": 69
+}
+
+###
+PUT http://{{branch}}/cart
+Content-Type: {{contentType}}
+
+{
+    "uuid": "157d7ee2-26e0-573c-bef5-4681f6ad0fcf",
+    "quantity": 1
+}
+
+###
+GET http://{{branch}}/cart
+
+###
+DELETE http://{{branch}}/cart
+Content-Type: {{contentType}}
+
+{
+    "uuid": "157d7ee2-26e0-573c-bef5-4681f6ad0fcf"
+}
+
+
+###
+DELETE http://{{branch}}/checkout
+

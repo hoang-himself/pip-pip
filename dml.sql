@@ -1,3 +1,31 @@
+INSERT INTO "master_db_customuser"(
+    "password",
+    "last_login",
+    "is_superuser",
+    "first_name",
+    "last_name",
+    "is_staff",
+    "is_active",
+    "uuid",
+    "email",
+    "phone",
+    "date_joined",
+    "date_updated"
+  )
+VALUES (
+    'pbkdf2_sha256$260000$fdSBoXLCOb2v7yIK9eIKCD$bWbpj6GaYGiSnmtEYCzm6eYyA9TLmhnHKLBEu1cIoZM=',
+    null,
+    False,
+    'Hilda',
+    'Ramirez',
+    False,
+    True,
+    'b0343384-0152-4671-a7d6-c2122a65eab1',
+    'owner@localhost.com',
+    '0950128413',
+    '2021-12-08 08:08:14.987748+00',
+    '2021-12-08 08:08:14.987763+00'
+  );
 INSERT INTO "master_db_brand"("uuid", "name", "desc")
 VALUES (
     '84093bb8-8496-596a-819b-2c443009a9d0',
@@ -276,4 +304,66 @@ VALUES (
     'element contain buffalo describe',
     '[ "50% OFF" ]',
     'regular refer shown lose physical discover state organization ocean dinner helpful loss mighty refused slabs scared check given six quarter crop official put wherever'
+  );
+INSERT INTO "master_db_cart"(
+    "uuid",
+    "quantity",
+    "item_id",
+    "user_id"
+  )
+VALUES (
+    '761262f5-6deb-5aba-9599-01c67cf84d56',
+    45,
+    (
+      SELECT id
+      FROM "master_db_product"
+      WHERE name = 'Reno6 Pro 5G'
+    ),
+    (
+      SELECT id
+      FROM "master_db_customuser"
+      WHERE email = 'owner@localhost.com'
+    )
+  ),
+  (
+    '50807864-db73-548e-b703-6a229d2f565f',
+    34,
+    (
+      SELECT id
+      FROM "master_db_product"
+      WHERE name = 'iPhone 13 Pro Max'
+    ),
+    (
+      SELECT id
+      FROM "master_db_customuser"
+      WHERE email = 'owner@localhost.com'
+    ),
+    (
+      '616b29d4-37b6-599a-b870-9c9be185b5a2',
+      85,
+      (
+        SELECT id
+        FROM "master_db_product"
+        WHERE name = 'Vivo V23e'
+      ),
+      (
+        SELECT id
+        FROM "master_db_customuser"
+        WHERE email = 'owner@localhost.com'
+      )
+    ),
+    (
+      '5d4b141d-ee40-54b1-89f8-203dbfa7b2d9',
+      94,
+      (
+        SELECT id
+        FROM "master_db_product"
+        WHERE name = 'Oppo F17 Pro'
+      ),
+      (
+        SELECT id
+        FROM "master_db_customuser"
+        WHERE email = 'owner@localhost.com'
+      )
+    )
   );
