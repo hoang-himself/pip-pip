@@ -10,6 +10,9 @@ GET http://{{branch}}/filter_list
 GET http://{{branch}}/all
 
 ###
+GET http://{{branch}}/popular
+
+###
 GET http://{{branch}}/detail?uuid=6d9349b0-7877-5f44-a863-888e273c3ab0
 
 ###

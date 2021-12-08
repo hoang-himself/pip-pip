@@ -59,7 +59,7 @@ def edit_object(model, **kwargs):
         raise exceptions.ParseError(convert_primitive(serializer.errors))
 
 
-def get_object(model, **kwargs):
+def get_object(model, explicit=None, **kwargs):
     try:
         data = kwargs.pop('data')
     except KeyError:
@@ -68,7 +68,7 @@ def get_object(model, **kwargs):
         uuid = data['uuid']
     except KeyError:
         raise exceptions.ParseError({'uuid': 'This field is required.'})
-    Serializer = SERIALIZERS[model]
+    Serializer = SERIALIZERS[model] if explicit is None else explicit
     return Response(Serializer(get_by_uuid(model, uuid)).data)
 
 

@@ -43,7 +43,8 @@ INSERT INTO "master_db_product"(
     "material",
     "battery",
     "screen",
-    "perk"
+    "perk",
+    "desc"
   )
 VALUES (
     '6d9349b0-7877-5f44-a863-888e273c3ab0',
@@ -63,7 +64,8 @@ VALUES (
     'species learn spring progress calm machinery down rapidly',
     'sister fruit both thee summer very bread real',
     'rain needed people surprise stuck funny vote swimming',
-    '[ "Hot deal!" ]'
+    '[ "Hot deal!" ]',
+    'forty four tribe century situation degree pour husband party break particular next growth construction happen metal figure which vowel basic twice frequently globe concerned'
   ),
   (
     'ce602c59-de2e-5dfb-8841-02e1d719b1d4',
@@ -83,7 +85,8 @@ VALUES (
     'replace bowl welcome very establish barn no create',
     'courage let beneath stronger golden ask draw three',
     'opinion alive government somewhere foot cool somehow cattle',
-    '[ "50% OFF" ]'
+    '[ "50% OFF" ]',
+    'born pole settlers case serve bill learn easily cold colony alone read building recall face love there dark fallen level relationship to book nodded'
   ),
   (
     'baf9c355-a040-5f07-a669-a92e6245bf3e',
@@ -103,7 +106,8 @@ VALUES (
     'article place broad closer further store top later',
     'love compare fastened opinion region daily cloth fourth',
     'park before improve combine orange happened steam pair',
-    '[ "50% OFF" ]'
+    '[ "50% OFF" ]',
+    'specific fat judge eye every spread forth concerned teeth electricity growth composed one caught price youth difference quarter locate tall gasoline slightly recall have'
   ),
   (
     '072c8269-eda2-5085-8d5f-4811e5adb80d',
@@ -123,7 +127,8 @@ VALUES (
     'let curious trail political education oil compass wear lonely over chance bar down pain bottle review were off decide construction total mail bee into',
     'settlers solve education line hurt higher victory refer blew neighbor glass baseball wire breathing belong terrible bean cool forest knife where snake nodded stove',
     'nearest worried thing recent noted sink choose please difficulty desk hold mouse brave bow arrange disease figure policeman offer expect did remarkable section surrounded',
-    '[ ]'
+    '[ ]',
+    'dot such additional want species butter corner soon middle heat contrast cover sign pig stuck include planning baby value trip running space valley exciting'
   ),
   (
     'ba50b773-0580-5da1-b4fa-56f01696a1cb',
@@ -143,7 +148,8 @@ VALUES (
     'rice upward mail lie member asleep guess brass express gas changing gun herd shorter means could silly twenty four broken shallow deeply slight layers',
     'youth swing fireplace faster lungs flat meal pick leg nine public proud first this fastened iron pretty open growth under shoe that likely bush',
     'salmon gravity social largest truck potatoes upper bush meat wonder rod mission tool construction saddle space pencil degree what poem rather palace tropical hand',
-    '[ ]'
+    '[ ]',
+    'race nest noun produce orange finally wrapped oldest fly vast report job wagon design possible equator without pick rest soap till closely science rhyme'
   ),
   (
     'e5fb8ff4-9520-5118-8195-290803e57460',
@@ -163,7 +169,8 @@ VALUES (
     'temperature light information yes growth specific move wealth account express door farther obtain rocky report period small written physical select during bad newspaper average',
     'respect military scientist floating necessary voice grandfather silly paid other active live chief citizen common handsome board heading applied hunt laugh worry cry yes',
     'bread putting what could particular difficulty previous easily bank amount everything subject proud struck research face else dull positive teeth away nails effect range',
-    '[ "50% OFF", "Coupon" ]'
+    '[ "50% OFF", "Coupon" ]',
+    'factory coach indeed greatly past however evidence pitch slowly chapter off evening cannot wheat memory kill gas general arm health brother themselves environment catch'
   ),
   (
     'a5690a42-e79f-53d0-9972-b8f566633892',
@@ -183,7 +190,8 @@ VALUES (
     'port coach ordinary load spend question bottle drop sing garage we daughter barn bee down equal ring about broken part deep color those law',
     'definition useful cry experience border air column raise train snake talk pleasure end cloud know tent factory produce recently remarkable picture public thus winter',
     'pattern hurried coast newspaper did affect eventually drive told chose importance angry plastic away somehow badly rocket learn cause highway plain organized decide final',
-    '[ ]'
+    '[ ]',
+    'cold consonant kids corn bowl stage expression section cast local parent push raw circle yes was south though numeral sign list explain fair difficult'
   ),
   (
     'e107cbf1-930b-5e40-8cc9-f09fd0d91ed1',
@@ -203,7 +211,8 @@ VALUES (
     'they too certainly damage tree truck policeman how cake kept object ill twice swung far owner official acres pipe nearly wealth opinion word plane',
     'consider won away spend original whistle earth once realize over tiny arrive please whispered frozen now building paint egg fifty knowledge four image speech',
     'went hit best regular read sold joined term glass select vegetable note space knife anybody hair eye sentence river atmosphere amount appropriate thumb yourself',
-    '[ ]'
+    '[ ]',
+    'fact brick total across proud greatly thick swing difference how pocket sad although window sort biggest snow regular snake magnet real smoke lead wise'
   ),
   (
     '27eaec5c-4fbd-5ff7-b270-43fa8a3b0bc7',
@@ -223,7 +232,8 @@ VALUES (
     'language in differ pine valuable brass',
     'pencil recognize living hunt straw daughter',
     'slave tribe fought scientist include swing',
-    '[ "Hot deal!", "Coupon" ]'
+    '[ "Hot deal!", "Coupon" ]',
+    'size of value cry football shade experiment cowboy why whistle sugar asleep wise dish therefore try apart so jump hard attack whole improve swing'
   ),
   (
     '4c182238-d5b2-593f-aeb7-5a1a1f91c7ee',
@@ -243,7 +253,8 @@ VALUES (
     'eventually settle moon molecular mud went',
     'sides three sort rays trunk distance',
     'baseball sun price label size through',
-    '[ ]'
+    '[ ]',
+    'modern around floor today believed living inch recently oldest anywhere cool just track shoe either cutting occasionally probably forty command sale think die goose'
   ),
   (
     '157d7ee2-26e0-573c-bef5-4681f6ad0fcf',
@@ -263,5 +274,6 @@ VALUES (
     'rubber weather lunch kitchen',
     'tree refused worried luck',
     'element contain buffalo describe',
-    '[ "50% OFF" ]'
+    '[ "50% OFF" ]',
+    'regular refer shown lose physical discover state organization ocean dinner helpful loss mighty refused slabs scared check given six quarter crop official put wherever'
   );

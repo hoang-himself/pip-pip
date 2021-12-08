@@ -9,6 +9,7 @@ from master_api.views import (
 )
 from master_db.models import Product, Brand
 from master_db.serializers import ProductSerializer, EnhancedModelSerializer
+from rest_framework import serializers
 
 CustomUser = get_user_model()
 
@@ -16,7 +17,27 @@ CustomUser = get_user_model()
 class ImplicitProduct(EnhancedModelSerializer):
     class Meta:
         model = Product
-        fields = ('name', 'image', 'price', 'perk')
+        fields = ('name', 'image', 'price', 'perk', 'uuid')
+
+
+class BrandField(serializers.ModelSerializer):
+    def to_representation(self, instance):
+        return {
+            'name': instance.name,
+            'desc': instance.desc
+        }
+
+    class Meta:
+        model = Brand
+        fields = ('name', 'desc')
+
+
+class ExplicitProduct(EnhancedModelSerializer):
+    brand = BrandField()
+
+    class Meta:
+        model = Product
+        exclude = ('id', )
 
 
 @api_view(['GET'])
@@ -52,7 +73,7 @@ def get_filter_list(_):
 
 @api_view(['GET'])
 def get_detail(request):
-    return get_object(Product, data=request.GET)
+    return get_object(Product, explicit=ExplicitProduct, data=request.GET)
 
 
 @api_view(['GET'])
@@ -77,4 +98,16 @@ def get_filter(request):
             query += "__icontains"
         dic.update({query: value})
     instances = Product.objects.filter(**dic)
+    return Response(ImplicitProduct(instances, many=True).data)
+
+
+@api_view(['GET'])
+def get_popular(_):
+    instances = Product.objects.order_by('?')[:6]
+    return Response(ImplicitProduct(instances, many=True).data)
+
+
+@api_view(['GET'])
+def get_related(_):
+    instances = Product.objects.order_by('?')[:5]
     return Response(ImplicitProduct(instances, many=True).data)

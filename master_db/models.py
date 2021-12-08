@@ -50,6 +50,7 @@ class Product(TemplateModel):
     battery = models.TextField()
     screen = models.TextField()
     perk = models.JSONField()
+    desc = models.TextField()
 
     class Meta:
         verbose_name = 'product'
