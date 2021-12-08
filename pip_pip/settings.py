@@ -190,7 +190,7 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME':
-        timedelta(days=1),
+        timedelta(hours=1),
     'REFRESH_TOKEN_LIFETIME':
         timedelta(days=1),
     'ROTATE_REFRESH_TOKENS':
@@ -208,7 +208,7 @@ SIMPLE_JWT = {
     'AUDIENCE':
         None,
     'ISSUER':
-        'TFC_API',
+        'PIP_PIP',
     'AUTH_HEADER_TYPES': ('Bearer', 'JWT'),
     'AUTH_HEADER_NAME':
         'HTTP_AUTHORIZATION',
@@ -226,7 +226,7 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_EXP_CLAIM':
         'refresh_exp',
     'SLIDING_TOKEN_LIFETIME':
-        timedelta(minutes=5),
+        timedelta(hours=1),
     'SLIDING_TOKEN_REFRESH_LIFETIME':
         timedelta(days=1),
 }

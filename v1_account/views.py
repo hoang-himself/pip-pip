@@ -43,7 +43,7 @@ class PasswdUserSerializer(EnhancedModelSerializer):
         fields = ['password']
 
 
-class SignInView(APIView):
+class AuthView(APIView):
     def post(self, request):
         valid = True
         errors = {}
@@ -80,11 +80,24 @@ class SignInView(APIView):
 
         response = Response()
         response.status_code = status.HTTP_200_OK
+        response.set_cookie(
+            key='accesstoken',
+            value=access_token,
+            httponly=True
+        )
+        response.data = {'details': 'ok'}
+        return response
+
+    def delete(self, request):
+        token = request.COOKIES.get('accesstoken', None)
+
+        response = Response()
+        if (token):
+            response.delete_cookie('accesstoken')
+
+        response.status_code = status.HTTP_200_OK
         response.data = {
-            'token': {
-                'refresh': refresh_token,
-                'access': access_token
-            }
+            'detail': 'ok'
         }
         return response
 

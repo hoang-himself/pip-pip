@@ -26,3 +26,6 @@ Content-Type: {{contentType}}
     "email": "hig@emovaw.za",
     "password": "4d3ig1bf8WWE6C"
 }
+
+###
+DELETE http://{{branch}}/signout
