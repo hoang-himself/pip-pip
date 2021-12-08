@@ -23,7 +23,10 @@ CustomUser = get_user_model()
 
 class UserView(APIView):
     def post(self, request):
-        return create_object(CustomUser, data=request.data)
+        norm_data = {}
+        for key, value in request.data.items():
+            norm_data[key] = value
+        return create_object(CustomUser, data=norm_data)
 
     def get(self, _):
         return Response(
