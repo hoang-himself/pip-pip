@@ -56,6 +56,21 @@ VALUES (
     '6bb97ccb-3f69-58ea-a679-c1e53a3e32bf',
     'Xiaomi',
     'smell bottle ahead twelve using heard species stone iron us managed vegetable lead hurried wing bee recently tree neighborhood closely dog asleep like also'
+  ),
+  (
+    '25f7247e-3afc-592f-8a5c-33323bd3d097',
+    'Bphone',
+    'tall wet flag realize warn prevent attempt ran angle empty welcome nation forgot relationship taught brief collect across standard few glad exclaimed simple deeply'
+  ),
+  (
+    'ea828991-b54c-5d60-b183-27eb6c0cb066',
+    'Sony',
+    'wagon dark aware likely putting lips do alike torn where either shells man activity lion generally studying honor anyone quickly expression story cross indicate'
+  ),
+  (
+    'b0870f00-72db-5175-a844-0f470b929f8f',
+    'Pixel',
+    'begun goose coach let shine choose market mile business name origin wheat entirely gas continent sink angry dangerous across addition college rhyme earlier snake'
   );
 INSERT INTO "master_db_product"(
     "uuid",
@@ -304,6 +319,90 @@ VALUES (
     'element contain buffalo describe',
     '[ "50% OFF" ]',
     'regular refer shown lose physical discover state organization ocean dinner helpful loss mighty refused slabs scared check given six quarter crop official put wherever'
+  ),
+  (
+    '7a9d755b-c578-5ad3-9033-5bc8868e6481',
+    (
+      SELECT id
+      FROM "master_db_brand"
+      WHERE name = 'Sony'
+    ),
+    '/product/5d5ecc984b1e4a3628bbce5f3404b10b_400x.png',
+    'Xperia PRO-I',
+    '[ "black" ]',
+    '[ "512GB" ]',
+    '12GB',
+    2021,
+    '3 camera 12MP',
+    -2,
+    'newspaper badly satellites love price hat pile',
+    'condition other work blood church largest joined',
+    '120Hz 4K HDR 21:9 6.5in OLED',
+    '[ ]',
+    'traffic tube bright anything fifth quiet famous count tea television plus prepare language steep pupil piece see saved bat little orbit dot duck people'
+  ),
+  (
+    '1de0011b-b9d5-5cf6-83ba-f4a7a0115dcc',
+    (
+      SELECT id
+      FROM "master_db_brand"
+      WHERE name = 'Sony'
+    ),
+    '/product/bec37fd1196426136aae242507e874b0_32559fe8-63c9-4d8e-b1f1-1544e944913c_400x.png',
+    'Xperia 1 III',
+    '[ "black" ]',
+    '[ "256GB" ]',
+    '12GB',
+    2021,
+    '3 camera 12MP',
+    -2,
+    'satisfied voyage well having since horn behavior becoming active',
+    'chart tin sign return doll lay duty',
+    '120Hz 4K HDR 21:9 6.5in OLED',
+    '[ ]',
+    'fly white protection may master cause disappear ground basket sitting hour tobacco moment grade community control saved leg snow herd visitor old friend experiment'
+  ),
+  (
+    '1b488e0f-b5cc-5e35-a4a2-c2b0c0bc8b80',
+    (
+      SELECT id
+      FROM "master_db_brand"
+      WHERE name = 'Bphone'
+    ),
+    '/product/bphone-b40-thumb-tam-600x600.png',
+    'Bphone B40',
+    '[ "white" ]',
+    '[ "64GB" ]',
+    '4GB',
+    2020,
+    '12MP',
+    -1,
+    'article place broad closer further store top later',
+    'love compare fastened opinion region daily cloth fourth',
+    'park before improve combine orange happened steam pair',
+    '[ ]',
+    'specific fat judge eye every spread forth concerned teeth electricity growth composed one caught price youth difference quarter locate tall gasoline slightly recall have'
+  ),
+  (
+    'be431a69-807e-5c3d-ac49-28a0775c5c63',
+    (
+      SELECT id
+      FROM "master_db_brand"
+      WHERE name = 'Pixel'
+    ),
+    '/product/google_pixel_6_pro_5g_black_didongmy2.png',
+    'Google Pixel 6 Pro',
+    '[ "black", "white", "yellow" ]',
+    '[ "128GB" ]',
+    '12GB',
+    2021,
+    '50MP, Wide 48MP, Tele 12MP',
+    -1,
+    'let curious trail political education oil compass wear lonely over chance bar down pain bottle review were off decide construction total mail bee into',
+    'settlers solve education line hurt higher victory refer blew neighbor glass baseball wire breathing belong terrible bean cool forest knife where snake nodded stove',
+    '120Hz HDR10+ 1440x3120 19.5:9 AMOLED',
+    '[ ]',
+    'dot such additional want species butter corner soon middle heat contrast cover sign pig stuck include planning baby value trip running space valley exciting'
   );
 INSERT INTO "master_db_cart"(
     "uuid",
