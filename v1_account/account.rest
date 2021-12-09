@@ -33,4 +33,12 @@ Content-Type: {{contentType}}
 }
 
 ###
+GET http://{{branch}}/me
+Content-Type: {{contentType}}
+
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXAiOiJhY2Nlc3MiLCJleHAiOjE2MzkwNzU4NTksImlhdCI6MTYzOTA3MjI1OSwianRpIjoiZTRmMzc4ZWIxZDYxNGZkZWEzOTBmZjRjOWIwOTg3MTUiLCJ1dWlkIjoiZTJlNDU2OTEtYjZmYy00OTU2LTgwODAtZTgwOGQwZjVhZWVkIiwiaXNzIjoiUElQX1BJUCJ9.nIk_idfi5r0RTD9gogpw00QyMlACdf_9vP_MzuJWYOQ"
+}
+
+###
 DELETE http://{{branch}}/signout

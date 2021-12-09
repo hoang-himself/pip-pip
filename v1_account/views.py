@@ -15,10 +15,24 @@ from master_api.views import (
 from master_db.serializers import (
     EnhancedModelSerializer, CustomUserSerializer
 )
-
-import jwt
+from v1_cart.views import request_to_user_object
 
 CustomUser = get_user_model()
+
+
+class UserSelfSerializer(EnhancedModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = [
+            'email', 'first_name',
+            'last_name', 'phone'
+        ]
+
+
+class UserSelfView(APIView):
+    def post(self, request):
+        user = request_to_user_object(request)
+        return Response(UserSelfSerializer(user).data)
 
 
 class UserView(APIView):
@@ -66,14 +80,14 @@ class AuthView(APIView):
             raise exceptions.NotAuthenticated(errors)
 
         if ((user := get_object_or_None(CustomUser, email=email)) is None):
-            raise exceptions.NotFound('User not found.')
+            raise exceptions.NotFound('User email not found.')
 
         if not (user.is_active):
             raise exceptions.NotFound('User inactive.')
 
         ser_user = PasswdUserSerializer(user).data
         if not check_password(password, ser_user.get('password', None)):
-            raise exceptions.AuthenticationFailed('No matching credentials.')
+            raise exceptions.AuthenticationFailed('Wrong password.')
 
         refresh_token = RefreshToken.for_user(user)
         access_token = refresh_token.access_token
@@ -81,15 +95,12 @@ class AuthView(APIView):
         refresh_token = str(refresh_token)
         access_token = str(access_token)
 
-        response = Response()
-        response.status_code = status.HTTP_200_OK
-        response.set_cookie(
-            key='accesstoken',
-            value=access_token,
-            httponly=True
+        return Response(
+            status=status.HTTP_200_OK,
+            data={
+                'access_token': access_token
+            }
         )
-        response.data = {'details': 'ok'}
-        return response
 
     def delete(self, request):
         token = request.COOKIES.get('accesstoken', None)
@@ -103,41 +114,3 @@ class AuthView(APIView):
             'detail': 'ok'
         }
         return response
-
-
-class RefreshView(APIView):
-    def post(self, request):
-        refresh_token = request.POST.get('refresh', None)
-
-        if not (refresh_token):
-            raise exceptions.ParseError({'refresh': 'This field is required.'})
-
-        try:
-            payload = jwt.decode(
-                refresh_token, settings.JWT_KEY, algorithms=['HS256']
-            )
-            if payload.get('typ', None) != 'refresh':
-                raise exceptions.ParseError('Invalid refresh token.')
-        except jwt.ExpiredSignatureError:
-            raise exceptions.AuthenticationFailed('Refresh token expired.')
-
-        if (
-            (
-                user :=
-                get_object_or_None(CustomUser, uuid=payload.get('uuid', None))
-            ) is None
-        ):
-            raise exceptions.NotFound('User not found.')
-
-        if not (user.is_active):
-            raise exceptions.NotFound('User inactive.')
-
-        return Response(
-            status=status.HTTP_200_OK,
-            data={
-                'token':
-                    {
-                        'access': str(RefreshToken.for_user(user).access_token)
-                    }
-            }
-        )
