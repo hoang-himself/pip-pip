@@ -36,12 +36,12 @@ class ImplicitCart(EnhancedModelSerializer):
         fields = ('item', 'quantity')
 
 
-def jwt_to_user_object(request):
-    token = request.COOKIES.get('accesstoken', None)
+def request_to_user_object(request):
+    token = request.data.get('access_token', None)
 
     if not (token):
         raise exceptions.AuthenticationFailed(
-            {'accesstoken': 'This field is required.'}
+            {'access_token': 'This field is required.'}
         )
 
     try:
@@ -66,7 +66,7 @@ def jwt_to_user_object(request):
 
 class UserCheckout(APIView):
     def delete(self, request):
-        user = jwt_to_user_object(request)
+        user = request_to_user_object(request)
         user.cart.clear()
         return Response('Cleared')
 
@@ -81,24 +81,36 @@ class UserCartView(APIView):
 
         if bool(catchError):
             raise exceptions.ParseError(catchError)
-        elif quantity <= 0:
+        elif quantity != 'add' and quantity <= 0:
             raise exceptions.ParseError(
                 {'quantity': 'This field must be greater than 0'})
 
-        user = jwt_to_user_object(request)
+        user = request_to_user_object(request)
         item = Product.objects.get(uuid=uuid)
 
-        obj, _ = Cart.objects.update_or_create(
+        if item.price < 0:
+            raise exceptions.ParseError(
+                {'item': 'This product cannot be added to cart.'})
+
+        obj, created = Cart.objects.get_or_create(
             user=user,
             item=item,
-            defaults={'quantity': quantity}
+            defaults={
+                "quantity": 1
+            }
         )
+
+        if quantity == 'add':
+            obj.quantity = 1 if created else obj.quantity + 1
+        else:
+            obj.quantity = quantity
+
         obj.save()
         return Response('Ok')
 
-    def get(self, request):
-        user = jwt_to_user_object(request)
-        return Response(ImplicitCart(Cart.objects.filter(user=user), many=True).data)
+    def post(self, request):
+        user = request_to_user_object(request)
+        return Response(ImplicitCart(Cart.objects.filter(user=user).order_by('item__name'), many=True).data)
 
     def delete(self, request):
         catchError = {}
@@ -108,7 +120,7 @@ class UserCartView(APIView):
         if bool(catchError):
             raise exceptions.ParseError(catchError)
 
-        user = jwt_to_user_object(request)
+        user = request_to_user_object(request)
         item = Product.objects.get(uuid=uuid)
 
         obj = Cart.objects.get(
