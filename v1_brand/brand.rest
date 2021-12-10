@@ -1,13 +1,12 @@
-@port=8000
-@branch={{hostname}}:{{port}}/api/v1/brand
+@hostname_remote=https://pip-3103.herokuapp.com:443
+@branch={{hostname_remote}}/api/v1/brand
 @contentType=application/json
-# @authToken=
 
 ###
-GET http://{{branch}}/all
+GET {{branch}}/all
 
 ###
-GET http://{{branch}}/brand
+GET {{branch}}/brand
 Content-Type: {{contentType}}
 
 {

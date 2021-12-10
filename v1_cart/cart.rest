@@ -1,10 +1,9 @@
-@port=8000
-@branch={{hostname}}:{{port}}/api/v1/cart
+@hostname_remote=https://pip-3103.herokuapp.com:443
+@branch={{hostname_remote}}/api/v1/cart
 @contentType=application/json
-# @authToken=
 
 ###
-PUT http://{{branch}}/cart
+PUT {{branch}}/cart
 Content-Type: {{contentType}}
 
 {
@@ -13,7 +12,7 @@ Content-Type: {{contentType}}
 }
 
 ###
-PUT http://{{branch}}/cart
+PUT {{branch}}/cart
 Content-Type: {{contentType}}
 
 {
@@ -31,7 +30,7 @@ Content-Type: {{contentType}}
 }
 
 ###
-PUT http://{{branch}}/cart
+PUT {{branch}}/cart
 Content-Type: {{contentType}}
 
 {
@@ -41,7 +40,7 @@ Content-Type: {{contentType}}
 }
 
 ###
-POST http://{{branch}}/cart
+POST {{branch}}/cart
 Content-Type: {{contentType}}
 
 {
@@ -49,7 +48,7 @@ Content-Type: {{contentType}}
 }
 
 ###
-DELETE http://{{branch}}/cart
+DELETE {{branch}}/cart
 Content-Type: {{contentType}}
 
 {
@@ -58,7 +57,7 @@ Content-Type: {{contentType}}
 
 
 ###
-DELETE http://{{branch}}/checkout
+DELETE {{branch}}/checkout
 Content-Type: {{contentType}}
 
 {
