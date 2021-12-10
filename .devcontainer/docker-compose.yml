@@ -18,9 +18,10 @@ services:
         USER_UID: 1000
     init: true
     ports:
-      - '3103:3103'
+      - '8000:8000'
     env_file:
       - ../.env
+      # - ../.env.local
     volumes:
       - ..:/workspace:cached
     networks:
@@ -35,6 +36,7 @@ services:
       - "5432:5432"
     env_file:
       - ../.env
+      # - ../.env.local
     volumes:
       - postgres-volume:/var/lib/postgresql/data
     networks:
@@ -49,6 +51,7 @@ services:
       - "8080:80"
     env_file:
       - ../.env
+      # - ../.env.local
     volumes:
       - /data/pgadmin:/root/.pgadmin
     networks:

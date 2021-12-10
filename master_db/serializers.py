@@ -332,7 +332,6 @@ class CustomUserSerializer(EnhancedModelSerializer):
 
 
 class CartSerializer(EnhancedModelSerializer):
-
     class Meta:
         model = Cart
         exclude = ('id', )

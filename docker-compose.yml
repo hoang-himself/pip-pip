@@ -18,9 +18,10 @@ services:
         USER_UID: 1000
     restart: unless-stopped
     ports:
-      - '3103:3103'
+      - '8000:8000'
     env_file:
       - ./.env
+      # - ./.env.local
     networks:
       - postgres-network
     user: vscode
@@ -36,6 +37,7 @@ services:
       - postgres-volume:/var/lib/postgresql/data
     env_file:
       - ./.env
+      # - ./.env.local
     networks:
       - postgres-network
 
@@ -48,6 +50,7 @@ services:
       - /data/pgadmin:/root/.pgadmin
     env_file:
       - ./.env
+      # - ./.env.local
     networks:
       - postgres-network
     depends_on:
