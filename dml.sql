@@ -390,8 +390,8 @@ VALUES (
       FROM "master_db_brand"
       WHERE name = 'Google'
     ),
-    '/product/google_Google_6_pro_5g_black_didongmy2.png',
-    'Google Google 6 Pro',
+    '/product/google_pixel_6_pro_5g_black_didongmy2.png',
+    'Google Pixel 6 Pro',
     '[ "black", "white", "yellow" ]',
     '[ "128GB" ]',
     '12GB',
